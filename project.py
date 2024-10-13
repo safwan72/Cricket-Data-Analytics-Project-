@@ -3,7 +3,9 @@ import json
 
 
 # match_summary
-with open(r"C:\Users\safwa\OneDrive\Desktop\DA\t20_json_files\t20_wc_match_results.json") as f:
+with open(
+    r"C:\Users\safwa\OneDrive\Desktop\DA\project\t20_json_files\t20_wc_match_results.json"
+) as f:
     data=json.load(f)
 
 df_matchSum = pd.DataFrame(data[0]["matchSummary"])
@@ -29,7 +31,9 @@ for index,row in df_matchSum.iterrows():
 
 # batting_summary
 
-with open(r"C:\Users\safwa\OneDrive\Desktop\DA\t20_json_files\t20_wc_batting_summary.json") as f1:
+with open(
+    r"C:\Users\safwa\OneDrive\Desktop\DA\project\t20_json_files\t20_wc_batting_summary.json"
+) as f1:
     all_rec=[]
     data=json.load(f1)
     for rec in data:
@@ -64,7 +68,7 @@ df_battingSum["match_id"] = df_battingSum["match"].map(df_matchSum_dict)
 # bowling_summary
 
 with open(
-    r"C:\Users\safwa\OneDrive\Desktop\DA\t20_json_files\t20_wc_bowling_summary.json"
+    r"C:\Users\safwa\OneDrive\Desktop\DA\project\t20_json_files\t20_wc_bowling_summary.json"
 ) as f1:
     all_rec = []
     data = json.load(f1)
@@ -82,12 +86,14 @@ df_bowlingSum["match_id"] = df_bowlingSum["match"].map(df_matchSum_dict)
 # player_summary
 
 with open(
-    r"C:\Users\safwa\OneDrive\Desktop\DA\t20_json_files\t20_wc_player_info.json"
+    r"C:\Users\safwa\OneDrive\Desktop\DA\project\t20_json_files\t20_wc_player_info.json"
 ) as f4:
     all_rec = []
     data = json.load(f4)
 df_playerSum = pd.DataFrame(data)
 
-print(df_playerSum)
+#print(df_playerSum)
+
+
 # Exporting
-df_playerSum.to_csv("t20_csv_files/t20_wc_player_summary.csv", index=False)
+#df_playerSum.to_csv("t20_csv_files/t20_wc_player_summary.csv", index=False)
